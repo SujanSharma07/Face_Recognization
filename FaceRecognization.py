@@ -6,20 +6,10 @@ import os
 from tqdm import tqdm #To see progress of the process
 import random #for shuffeling data and frame color randomization
 
-
 CATEGORIES = ["INCLUDE YOUR LABELS TO FACES IN THE FORM OF LIST"]
-
-
 IMG_SIZE = 50
 
-
-
 #test models
-import cv2
-import os
-import numpy as np
-
-
 cap = cv2.VideoCapture(0)
 #If you want to test on Video in your directory, place path to that video instead of 0
 
@@ -39,7 +29,7 @@ while True:
   
 
 
-    if faces == ():
+    if faces == (): #sometime when face is not detected then following code through error, so this is to pass that situation and make code work.
         pass
 
     else:      
@@ -69,19 +59,14 @@ while True:
             else:
                 color = (B,G,0)        
             cv2.rectangle(frame,(x,y),(x+w,y+h),color,2)    
-          
-                
+                          
             # font 
             font = cv2.FONT_HERSHEY_SIMPLEX 
+             
                 
-        
-            
             # fontScale 
             fontScale = 1
-                
-            # Blue color in BGR 
-            
-                
+
             # Line thickness of 2 px 
             thickness = 2
                 
