@@ -24,22 +24,17 @@ while True:
  
     faces = face_cascade.detectMultiScale(frame,1.3,5)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gray_faces = face_cascade.detectMultiScale(gray,1.3,5)
-    
+    gray_faces = face_cascade.detectMultiScale(gray,1.3,5)  
   
-
-
     if faces == (): #sometime when face is not detected then following code through error, so this is to pass that situation and make code work.
         pass
 
     else:      
         for (x,y,w,h) in faces:
-            B = random.randint(0,255)
+            B = random.randint(0,255) #To get random code for different frames
             G = random.randint(0,255)
-            R = random.randint(0,255)
-       
-              
-            
+            R = random.randint(0,255)      
+                          
             roi_color = gray[y:y+h, x:x+w]
             org = (x,y)
 
@@ -76,6 +71,6 @@ while True:
          
     cv2.imshow("WebCam", frame)
  
-    if cv2.waitKey(20) & 0xFF == ord('q'):
+    if cv2.waitKey(20) & 0xFF == ord('q'): #press 'Q' to break
         break
 
