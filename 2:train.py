@@ -6,29 +6,19 @@ import os
 from tqdm import tqdm #To see progress of the process
 import random #for shuffeling data and frame color randomization
 
-
 CATEGORIES = ["INCLUDE YOUR LABELS TO FACES IN THE FORM OF LIST"]
-
-
 IMG_SIZE = 50
 
-
-
 #TO reuse generated data
-
-import pickle
-
 pickle_in = open("X.pickle","rb")
 X = pickle.load(pickle_in)
 
 pickle_in = open("y.pickle","rb")
 y = pickle.load(pickle_in)
 
-X = X/255.0
+X = X/255.0 #Data Normalization(This help for faster optimization of loss and accuracy)
 
 y = np.array(y)
-
-
 
 #Model One and Model two are CNN(Obtional for opencv recognizer)
 #model one 
