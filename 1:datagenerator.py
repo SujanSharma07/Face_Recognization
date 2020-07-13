@@ -5,17 +5,11 @@ import os
 from tqdm import tqdm #To see progress of the process
 import random #for shuffeling data and frame color randomization
 
-
-
 CATEGORIES = ["INCLUDE YOUR LABELS TO FACES IN THE FORM OF LIST"]
 
-
 #To Generate Data
-
-
 training_data = []
 IMG_SIZE = 50
-
 
 DATADIR = "PATH TO IMAGE DATA"
 def create_training_data():
@@ -43,10 +37,7 @@ create_training_data()
 
 print(len(training_data))
 
-
-
 random.shuffle(training_data)
-
 
 for sample in training_data[:10]:
     print(sample[1])
@@ -61,9 +52,6 @@ for features,label in training_data:
 print(X[0].reshape(-1, IMG_SIZE, IMG_SIZE, 1))
 
 X = np.array(X).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
-
-
-import pickle
 
 pickle_out = open("X.pickle","wb")
 pickle.dump(X, pickle_out)
